@@ -61,6 +61,13 @@ jobs:
           run: ls -al
 
     # Step 7: Build docker image 
+
+        - name: Build Docker Image
+          run: |
+            docker build -t ${{ secrets.DOCKERHUB_USERNAME }}/backend_flasks:latest .
+            # make sure that your dockerhub repo name matches as this line (backend_flasks)
+
+
     # Go to dockerhub.com
     # Create a new repository - backend_flasks
     # Create a new access token - <access_token>
