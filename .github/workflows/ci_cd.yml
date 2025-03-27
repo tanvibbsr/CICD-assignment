@@ -29,9 +29,23 @@ jobs:
 
       # Step 3: Lint Python code
       #### 
+      - name: Lint Python code
+        run: |
+          if [ -f .flake8 ] || [ -f setup.cfg ] || [ -f tox.ini ] || [ -f .pep8 ]; then
+            flake8 .
+          else
+            echo "No lint configuration found, skipping linting."
+          fi
 
       # Step 4: Run Python tests
       ####
+      - name: Run Python tests
+        run: |
+          if [ -f pytest.ini ] || ls tests; then
+            pytest
+          else
+            echo "No tests found, skipping tests."
+          fi
 
   deploy:
     name: Deploy & Push to Docker Hub
