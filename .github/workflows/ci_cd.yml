@@ -7,7 +7,7 @@ on:
     branches: [ master ]
 
 jobs:
-  backend_flask:
+  Backend_flask:
     name: Backend (Flask)
     runs-on: ubuntu-latest
 
@@ -49,7 +49,7 @@ jobs:
 
   deploy:
     name: Deploy & Push to Docker Hub
-    needs: [backend_flask]
+    needs: [Backend_flask]
     runs-on: ubuntu-latest
     # Important step - add your environment name
     environment: PROD
@@ -62,7 +62,7 @@ jobs:
 
     # Step 7: Build docker image 
     # Go to dockerhub.com
-    # Create a new repository - backend_flask
+    # Create a new repository - Backend_flask
     # Create a new access token - <access_token>
     # Note down your username - <username>
     # Add the following secrets to your GitHub repository - Environment (name = TEST)
